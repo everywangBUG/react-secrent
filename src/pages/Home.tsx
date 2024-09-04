@@ -1,3 +1,9 @@
+import { Calendar } from "../components/calendar/Calendar"
+
 export const Home: React.FC = () => {
-  return (<div>Home</div>)
+  return (
+    <div>
+      <Calendar />
+    </div>
+  )
 }
