@@ -32,55 +32,51 @@ const getAllDays = (date: Dayjs) => {
   return daysInfo
 }
 
-const renderDay = (
-  days: Array<{date: Dayjs, isCurrentMonth: boolean}>,
-  dateRender: MonthCalendarProps["dateRender"],
-  dateInnerContent: MonthCalendarProps["dateInnerContent"],
-  value: Dayjs,
-  selectedHandle: (date: Dayjs) => void
-) => {
-  const rows = []
-  for (let i = 0; i < 6; i++) {
-    const row = []
-    for (let j = 0; j < 7; j++) {
-      const item = days[i * 7 + j]
-      row[j] =
-      <div
-        key={j}
-        className={item.isCurrentMonth ? s.thisMonth : s.otherMonth}
-        flex-1 b-1px b-solid b="#eee"
-        onClick={() => selectedHandle(item.date)}
-      >
-        {
-          dateRender
-          ?
-          dateRender(item.date)
-          :
-          (
-            <>
-              <div p-10px>
-                <span className={value.format("YYYY-MM-DD") === item.date.format("YYYY-MM-DD") ? s.selectedDate : ""}>
-                  {item.date.date()}
-                </span>
-              </div>
-              <div p-10px>{dateInnerContent?.(item.date)}</div>
-            </>
-          )
-        }
-      </div>
-    }
-    rows.push(row)
-  }
-  return rows.map((row, i) => <div key={i} h-100px flex flex-row>{row}</div>)
-}
 
 export const MonthCalendar: React.FC<MonthCalendarProps> = (props) => {
   const { dateRender, dateInnerContent, value, selectedHandle, curMonth } = props
   const weekList = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
   const localeContext = useContext(LocaleContext)
   const CalendarLocale = allLocales[localeContext.locale]
-
+  
   const allDays = getAllDays(curMonth)
+  const renderDays = (
+    days: Array<{date: Dayjs, isCurrentMonth: boolean}>,
+  ) => {
+    const rows = []
+    for (let i = 0; i < 6; i++) {
+      const row = []
+      for (let j = 0; j < 7; j++) {
+        const item = days[i * 7 + j]
+        row[j] =
+        <div
+          key={j}
+          className={item.isCurrentMonth ? s.thisMonth : s.otherMonth}
+          flex-1 b-1px b-solid b="#eee" cursor-pointer
+          onClick={() => selectedHandle(item.date)}
+        >
+          {
+            dateRender
+            ?
+            dateRender(item.date)
+            :
+            (
+              <>
+                <div p-10px>
+                  <span className={value?.format("YYYY-MM-DD") === item.date.format("YYYY-MM-DD") ? s.selectedDate : ""}>
+                    {item.date.date()}
+                  </span>
+                </div>
+                <div p-10px>{dateInnerContent?.(item.date)}</div>
+              </>
+            )
+          }
+        </div>
+      }
+      rows.push(row)
+    }
+    return rows.map((row, i) => <div key={i} h-100px flex flex-row>{row}</div>)
+  }
 
   return (
     <>
@@ -93,7 +89,7 @@ export const MonthCalendar: React.FC<MonthCalendarProps> = (props) => {
         }
       </div>
       <div>
-        {renderDay(allDays, dateRender, dateInnerContent, value, selectedHandle)}
+        {renderDays(allDays)}
       </div>
     </>
   )

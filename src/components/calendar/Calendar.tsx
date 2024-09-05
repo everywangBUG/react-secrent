@@ -3,9 +3,11 @@ import { MonthCalendar } from "./MonthCalendar"
 import { HeaderCalendar } from "./HeaderCalendar"
 import { CSSProperties, ReactNode, useState } from "react"
 import LocaleContext from "./LocalContext"
+import { useControllableValue } from "ahooks"
 
 export interface CalendarProps {
-  value: Dayjs
+  value?: Dayjs
+  defaultValue?: Dayjs
   style?: CSSProperties
   className?: string
   // 定制日期，覆盖全部的单元格
@@ -18,13 +20,18 @@ export interface CalendarProps {
 }
 
 export const Calendar: React.FC<CalendarProps> = (props) => {
-  const { className, style, locale, value, onChange } = props
-  const [curDate, setCurDate] = useState<Dayjs>(value)
-  const [curMonth, setCurMonth] = useState<Dayjs>(value)
-  const selectedHandler = (date: Dayjs) => {
+  const { className, style, locale, onChange } = props
+  const [curDate, setCurDate] = useControllableValue<Dayjs>(props, { defaultValue: dayjs() })
+  const [curMonth, setCurMonth] = useState<Dayjs>(curDate)
+  
+  const changeDate = (date: Dayjs) => {
     setCurDate(date)
     setCurMonth(date)
     onChange?.(date)
+  }
+  
+  const selectedHandler = (date: Dayjs) => {
+    changeDate(date)
   }
 
   const handleNextMonth = () => {
@@ -36,10 +43,8 @@ export const Calendar: React.FC<CalendarProps> = (props) => {
   }
 
   const handleToday = () => {
-    const nowDate = dayjs(new Date())
-    setCurDate(nowDate)
-    setCurMonth(nowDate)
-    onChange?.(nowDate)
+    const date = dayjs(new Date())
+    changeDate(date)
   }
 
   return (
