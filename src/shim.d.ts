@@ -19,6 +19,8 @@ declare module "react" {
     left?: string
     bottom?: string
     b?: string
+    cursor?: string,
+    "flex-1"?: boolean
   }
   interface SVGProps<T> extends SVGAttributes<T>, ClassAttributes<T> {
     w?: string,

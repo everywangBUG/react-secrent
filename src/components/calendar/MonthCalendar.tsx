@@ -52,7 +52,7 @@ export const MonthCalendar: React.FC<MonthCalendarProps> = (props) => {
         <div
           key={j}
           className={item.isCurrentMonth ? s.thisMonth : s.otherMonth}
-          flex-1 b-1px b-solid b="#eee" cursor-pointer
+          flex-1 b-1px b-solid b="#eee" cursor-pointer="true"
           onClick={() => selectedHandle(item.date)}
         >
           {
@@ -63,7 +63,7 @@ export const MonthCalendar: React.FC<MonthCalendarProps> = (props) => {
             (
               <>
                 <div p-10px>
-                  <span className={value?.format("YYYY-MM-DD") === item.date.format("YYYY-MM-DD") ? s.selectedDate : ""}>
+                  <span className={value?.toISOString() === item.date.toISOString() ? s.selectedDate : ""}>
                     {item.date.date()}
                   </span>
                 </div>
