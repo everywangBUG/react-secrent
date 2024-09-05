@@ -1,0 +1,19 @@
+.thisMonth {
+  color: #000;
+}
+
+.otherMonth {
+  color: #ccc;
+}
+
+.selectedDate {
+  background-color: var(--theme-color);
+  display: block;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}

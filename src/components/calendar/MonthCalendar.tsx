@@ -3,8 +3,12 @@ import { CalendarProps } from "./Calendar"
 import { useContext } from "react"
 import LocaleContext from "./localContext"
 import allLocales from "./local"
+import s from "./MonthCalendar.module.scss"
 
-interface MonthCalendarProps extends CalendarProps {}
+interface MonthCalendarProps extends CalendarProps {
+  selectedHandle: (date: Dayjs) => void
+  curMonth: Dayjs
+}
 
 const getAllDays = (date: Dayjs) => {
   const startDate = date.startOf("month")
@@ -31,9 +35,10 @@ const getAllDays = (date: Dayjs) => {
 const renderDay = (
   days: Array<{date: Dayjs, isCurrentMonth: boolean}>,
   dateRender: MonthCalendarProps["dateRender"],
-  dateInnerContent: MonthCalendarProps["dateInnerContent"]
+  dateInnerContent: MonthCalendarProps["dateInnerContent"],
+  value: Dayjs,
+  selectedHandle: (date: Dayjs) => void
 ) => {
-  console.log(dateRender, "placeholder")
   const rows = []
   for (let i = 0; i < 6; i++) {
     const row = []
@@ -42,8 +47,9 @@ const renderDay = (
       row[j] =
       <div
         key={j}
-        style={item.isCurrentMonth ? {color: "#000"} : {color: "#ccc"}}
-        flex-1 text-center b-1px b-solid b="#eee"
+        className={item.isCurrentMonth ? s.thisMonth : s.otherMonth}
+        flex-1 b-1px b-solid b="#eee"
+        onClick={() => selectedHandle(item.date)}
       >
         {
           dateRender
@@ -52,7 +58,11 @@ const renderDay = (
           :
           (
             <>
-              <div p-10px>{item.date.date()}</div>
+              <div p-10px>
+                <span className={value.format("YYYY-MM-DD") === item.date.format("YYYY-MM-DD") ? s.selectedDate : ""}>
+                  {item.date.date()}
+                </span>
+              </div>
               <div p-10px>{dateInnerContent?.(item.date)}</div>
             </>
           )
@@ -65,12 +75,12 @@ const renderDay = (
 }
 
 export const MonthCalendar: React.FC<MonthCalendarProps> = (props) => {
-  const { dateRender, dateInnerContent } = props
+  const { dateRender, dateInnerContent, value, selectedHandle, curMonth } = props
   const weekList = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
   const localeContext = useContext(LocaleContext)
   const CalendarLocale = allLocales[localeContext.locale]
 
-  const allDays = getAllDays(props.value)
+  const allDays = getAllDays(curMonth)
 
   return (
     <>
@@ -83,7 +93,7 @@ export const MonthCalendar: React.FC<MonthCalendarProps> = (props) => {
         }
       </div>
       <div>
-        {renderDay(allDays, dateRender, dateInnerContent)}
+        {renderDay(allDays, dateRender, dateInnerContent, value, selectedHandle)}
       </div>
     </>
   )

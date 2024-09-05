@@ -10,7 +10,9 @@ import {
 export default defineConfig({
   shortcuts: [],
   theme: {
-    colors: {}
+    colors: {
+      themeColor: "skyBlue"
+    }
   },
   presets: [
     presetUno(),
