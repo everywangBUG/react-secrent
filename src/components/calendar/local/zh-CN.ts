@@ -1,4 +1,4 @@
-import { CalendarType } from "./interface";
+import { CalendarType } from "./interface"
 
 const CalendarLocale: CalendarType = {
     formatYear: "YYYY 年",
@@ -29,4 +29,4 @@ const CalendarLocale: CalendarType = {
     }
 }
 
-export default CalendarLocale;
+export default CalendarLocale

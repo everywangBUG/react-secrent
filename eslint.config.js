@@ -30,6 +30,7 @@ export default tseslint.config(
       // 允许使用 any
       '@typescript-eslint/no-explicit-any': 'off',
       // 使用双引号
+      '@typescript-eslint/no-unused-vars': 'off',
       quotes: ['error', 'double'],
       // 不使用分号结尾语句
       semi: ['warn', 'never'],
