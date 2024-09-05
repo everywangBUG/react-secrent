@@ -2,7 +2,7 @@ import dayjs, { Dayjs } from "dayjs"
 import { MonthCalendar } from "./MonthCalendar"
 import { HeaderCalendar } from "./HeaderCalendar"
 import { CSSProperties, ReactNode, useState } from "react"
-import LocaleContext from "./LocalContext"
+import LocaleContext from "./localContext"
 import { useControllableValue } from "ahooks"
 
 export interface CalendarProps {

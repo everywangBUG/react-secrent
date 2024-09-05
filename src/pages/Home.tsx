@@ -8,7 +8,7 @@ export const Home: React.FC = () => {
     <div>
       {/* 非受控模式 */}
       <Calendar
-        value={dayjs("2024-09-05")}
+        defaultValue={dayjs(new Date())}
         dateInnerContent={(value) => {
           return <div h-30px>{value.format("YYYY-MM-DD")}</div>
         }}
