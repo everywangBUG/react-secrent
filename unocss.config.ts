@@ -11,7 +11,7 @@ export default defineConfig({
   shortcuts: [],
   theme: {
     colors: {
-      themeColor: "skyBlue"
+      themecolor: "skyBlue"
     }
   },
   presets: [

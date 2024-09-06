@@ -1,12 +1,13 @@
-import { StrictMode } from "react"
+import { lazy, Suspense } from "react"
 import { createRoot } from "react-dom/client"
-import { App } from "./App.tsx"
 import "./global.scss"
 import "virtual:uno.css"
 import "unocss"
 
+const App = lazy(() => import("./App.tsx").then((module) => ({ default: module.App })))
+
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
+  <Suspense fallback={<div text-center>loading...</div>}>
     <App />
-  </StrictMode>,
+  </Suspense>
 )

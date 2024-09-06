@@ -20,7 +20,8 @@ declare module "react" {
     bottom?: string
     b?: string
     cursor?: string,
-    "flex-1"?: boolean
+    "flex-1"?: boolean,
+    "bg-themecolor"?: boolean
   }
   interface SVGProps<T> extends SVGAttributes<T>, ClassAttributes<T> {
     w?: string,
