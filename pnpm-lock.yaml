@@ -69,6 +69,9 @@ importers:
       ahooks:
         specifier: 3.8.1
         version: 3.8.1(react@18.3.1)
+      classnames:
+        specifier: 2.5.1
+        version: 2.5.1
       dayjs:
         specifier: 1.11.13
         version: 1.11.13
@@ -1964,6 +1967,9 @@ packages:
 
   citty@0.1.6:
     resolution: {integrity: sha512-tskPPKEs8D2KPafUypv2gxwJP8h/OaJmC82QQGGDQcHvXX43xF2VDACcJVmZ0EuSxkpO9Kc4MlrA3q0+FG58AQ==}
+
+  classnames@2.5.1:
+    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
 
   cli-cursor@3.1.0:
     resolution: {integrity: sha512-I/zHAwsKf9FqGoXM4WWRACob9+SNukZTd94DWF57E4toouRulbCxcUh6RKUEOQlYTHJnzkPMySvPNaaSLNfLZw==}
@@ -5937,6 +5943,8 @@ snapshots:
   citty@0.1.6:
     dependencies:
       consola: 3.2.3
+
+  classnames@2.5.1: {}
 
   cli-cursor@3.1.0:
     dependencies:
