@@ -9,7 +9,7 @@ export const CreateIconFont = (scriptUrl: string) => {
     && scriptUrl.length
     && !loadedSet.has(scriptUrl)
   ) {
-    const script = document.createElement("scr  ipt")
+    const script = document.createElement("script")
     script.setAttribute("src", scriptUrl)
     script.setAttribute("data-namespace", scriptUrl)
     document.body.appendChild(script)
