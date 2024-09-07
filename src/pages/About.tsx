@@ -21,7 +21,7 @@ const UserName = () => {
 // 2. 使用支持Suspense的库，如jotai
 // 3. 配合use这个hook使用，当use这个hook目前还在实验阶段
 
-export function About() {
+export const About = () => {
   return <Suspense fallback="Loading...">
     <UserName />
     <Aaa />

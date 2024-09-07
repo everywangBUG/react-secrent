@@ -17,8 +17,7 @@ export const CreateIconFont = (scriptUrl: string) => {
     loadedSet.add(scriptUrl)
   }
 
-  console.log(111, "placeholder")
-  const Iconfont = React.forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+  const IconFont = React.forwardRef<SVGSVGElement, IconProps>((props, ref) => {
     const { type, ...rest } = props
 
     return (
@@ -28,5 +27,5 @@ export const CreateIconFont = (scriptUrl: string) => {
     )
   })
 
-  return Iconfont
+  return IconFont
 }

@@ -4,7 +4,7 @@ import "./global.scss"
 import "virtual:uno.css"
 import "unocss"
 
-const App = lazy(() => import("./App.tsx").then((module) => ({ default: module.App })))
+const App = lazy(() => import("./App.tsx"))
 
 createRoot(document.getElementById("root")!).render(
   <Suspense fallback={<div text-center>loading...</div>}>
