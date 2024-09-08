@@ -1,6 +1,7 @@
 import React from "react"
 import c from "classnames"
 import "./Space.scss"
+import { ConfigContext } from "./SpaceProvider"
 
 export type sizeType = "small" | "middle" | "large" | number | undefined
 
@@ -14,6 +15,7 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   wrap?: boolean
 }
 
+
 const spaceSize = {
   small: 8,
   middle: 16,
@@ -25,7 +27,8 @@ const getNumberSize = (size: sizeType): number => {
 }
 
 export const Space: React.FC<SpaceProps> = (props) => {
-  const { className, style, size, direction, align, wrap = false, split, ...otherProps } = props
+  const { space } = React.useContext(ConfigContext)
+  const { className, style, size= space?.size || "small", direction, align, wrap = false, split, ...otherProps } = props
   const mergeAlign = direction === "horizontal" && align === undefined ? "center" : align
   const cn = c(
     "space",
