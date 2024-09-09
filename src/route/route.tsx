@@ -4,6 +4,7 @@ import { About } from "../pages/About"
 import { Profile } from "../pages/Profile"
 import { Super } from "../pages/ChildrenApi"
 import { Foo } from "../pages/Foo"
+import { Baz } from "../pages/Baz"
 
 export const router = createBrowserRouter([
   {
@@ -25,5 +26,9 @@ export const router = createBrowserRouter([
   {
     path: "/foo",
     element: <Foo />
+  },
+  {
+    path: "/baz",
+    element: <Baz />
   }
 ])
