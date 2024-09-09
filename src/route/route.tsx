@@ -3,6 +3,7 @@ import { Home } from "../pages/Home"
 import { About } from "../pages/About"
 import { Profile } from "../pages/Profile"
 import { Super } from "../pages/ChildrenApi"
+import { Foo } from "../pages/Foo"
 
 export const router = createBrowserRouter([
   {
@@ -20,5 +21,9 @@ export const router = createBrowserRouter([
   {
     path: "/childrenApi",
     element: <Super />
+  },
+  {
+    path: "/foo",
+    element: <Foo />
   }
 ])
