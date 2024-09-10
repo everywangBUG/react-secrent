@@ -1,3 +1,4 @@
+import { CopyToClipboard } from "../components/CopyToClipboard"
 import { Portal } from "../components/Portal" 
 import { useRef, useEffect } from "react"
 
@@ -15,10 +16,15 @@ export const Foo: React.FC = () => {
 
   
   return (
-    <Portal
-      attach={document.body}
-      ref={containerRef}>
-      {content}
-    </Portal>
+    <>
+      <Portal
+        attach={document.body}
+        ref={containerRef}>
+        {content}
+      </Portal>
+      <CopyToClipboard text={"hello world!"} onCopy={() => { console.log("copy success") }}>
+        <div onClick={() => alert(1)}>复制</div>
+      </CopyToClipboard>
+    </>
   )
 }
