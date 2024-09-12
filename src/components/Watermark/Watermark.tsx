@@ -1,5 +1,5 @@
 import { CSSProperties, PropsWithChildren, useCallback, useEffect, useRef } from "react"
-import { useWatermark } from "./useWatermark"
+import useWatermark from "./useWatermark"
 
 export interface WatermarkProps extends PropsWithChildren {
   style?: CSSProperties
