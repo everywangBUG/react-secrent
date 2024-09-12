@@ -208,7 +208,7 @@ export default function useWatermark(params: WatermarkOptions) {
           left: ${offsetLeft};
           bottom: 0;
           right: 0;
-          pointer-event: none;
+          pointer-events: none;
           z-index: ${zIndex};
           background-position: 0 0;
           background-size: ${gap[0] + width}px ${gap[1] + height}px;
