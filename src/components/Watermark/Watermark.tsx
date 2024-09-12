@@ -17,7 +17,7 @@ export interface WatermarkProps extends PropsWithChildren {
     fontWeight?: number | string
   }
   gap?: [number, number]
-  offset?: number | string
+  offset?: number[] | string[]
   getContainer?: () => HTMLElement
 }
 
