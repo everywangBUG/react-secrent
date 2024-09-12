@@ -4,7 +4,8 @@ export const Bazz: React.FC = () => {
   return (
     <Watermark
       content={["bazz", "测试水印"]}
-      gap={[100, 100]}
+      gap={[10, 10]}
+      offset={[10, 200]}
       fontStyle={{
         color: "red"
       }}
