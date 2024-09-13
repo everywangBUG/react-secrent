@@ -210,6 +210,7 @@ export default function useWatermark(params: WatermarkOptions) {
           right: 0;
           pointer-events: none;
           z-index: ${zIndex};
+          opacity: ${mergedOptions.opacity};
           background-position: 0 0;
           background-size: ${gap[0] + width}px ${gap[1] + height}px;
           background-repeat: repeat;

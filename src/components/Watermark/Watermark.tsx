@@ -18,11 +18,12 @@ export interface WatermarkProps extends PropsWithChildren {
   }
   gap?: [number, number]
   offset?: number[] | string[]
+  opacity?: number
   getContainer?: () => HTMLElement
 }
 
 export const Watermark: React.FC<WatermarkProps> = (props) => {
-  const { style, className, zIndex, width, height, rotate, image, content, fontStyle, gap, offset } = props
+  const { style, className, zIndex, width, height, rotate, image, content, fontStyle, gap, offset, opacity } = props
   
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -40,6 +41,7 @@ export const Watermark: React.FC<WatermarkProps> = (props) => {
     fontStyle,
     gap,
     offset,
+    opacity,
     getContainer,
   })
   
@@ -54,6 +56,7 @@ export const Watermark: React.FC<WatermarkProps> = (props) => {
       fontStyle,
       gap,
       offset,
+      opacity,
       getContainer,
     })
   }, [
@@ -63,6 +66,7 @@ export const Watermark: React.FC<WatermarkProps> = (props) => {
     rotate,
     image,
     content,
+    opacity,
     JSON.stringify(fontStyle),
     JSON.stringify(gap),
     JSON.stringify(offset),
