@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react"
+import { useHover } from "../hooks/useHover"
+
 export const Baz: React.FC = () => {
   const [ className, setClassName] = useState("aaa")
 
@@ -29,6 +31,9 @@ export const Baz: React.FC = () => {
 
   }, [])
 
+  const element = (hover: boolean) => <div>{hover ? "hover" : "not hover"}</div>
+  const [hoverable, hovered] = useHover(element)
+
   return (
     <div>
         <div id="container" ref={containerRef}>
@@ -39,6 +44,10 @@ export const Baz: React.FC = () => {
               </div>
             }
           </div>
+        </div>
+        <div>
+          {hoverable}
+          <div>{hovered ? "HOVERED" : ""}</div>
         </div>
     </div>
   )
