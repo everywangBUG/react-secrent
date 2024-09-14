@@ -16,7 +16,7 @@ export const useTimeout = (fn: () => void, delay?: number) => {
   }, [])
 
   useEffect(() => {
-    timeRef.current = setTimeout(fnRef.current, delay)
+    timeRef.current = setTimeout(() => fnRef.current(), delay) as any
 
     return clear
   }, [delay])
