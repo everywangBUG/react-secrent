@@ -31,6 +31,7 @@ export default tseslint.config(
       '@typescript-eslint/no-explicit-any': 'off',
       // 使用双引号
       '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-unsafe-function-type': 'off',
       // useEffect 依赖列表中不允许有未声明的变量
       'react-hooks/exhaustive-deps': 'off',
       // 允许使用 console

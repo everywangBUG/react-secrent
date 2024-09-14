@@ -1,5 +1,5 @@
 import { lazy } from "react"
-import img1 from "../assets/test.png"
+import img1 from "../assets/test.jpg"
 import { LazyLoad } from "../components/LazyLoad"
 
 const Bazz = lazy(() => import("./Bazz"))
