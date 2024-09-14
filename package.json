@@ -47,6 +47,7 @@
     "js-cookie": "3.0.5",
     "lodash-es": "^4.17.21",
     "react-use": "17.5.1",
+    "resize-observer-polyfill": "1.5.1",
     "storybook": "8.2.9",
     "typescript": "5.5.3",
     "typescript-eslint": "8.0.1",

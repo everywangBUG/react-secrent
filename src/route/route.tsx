@@ -7,6 +7,7 @@ import { Foo } from "../pages/Foo"
 import { Baz } from "../pages/Baz"
 import Bazz from "../pages/Bazz"
 import { Bar } from "../pages/Bar"
+import { Key } from "../pages/Key"
 
 export const router = createBrowserRouter([
   {
@@ -40,5 +41,9 @@ export const router = createBrowserRouter([
   {
     path: "bar",
     element: <Bar />
+  },
+  {
+    path: "key",
+    element: <Key />
   }
 ])
