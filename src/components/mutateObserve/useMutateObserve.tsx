@@ -26,7 +26,7 @@ export const useMutateObserve = (
         instance.observe(ele, options)
       })
     }
-    
+
     return () => {
       instance?.takeRecords()
       instance?.disconnect()

@@ -9,6 +9,7 @@ import Bazz from "../pages/Bazz"
 import { Bar } from "../pages/Bar"
 import { Key } from "../pages/Key"
 import { SuperAdd } from "../pages/Add"
+import { CountDown } from "../pages/CountDown"
 
 export const router = createBrowserRouter([
   {
@@ -50,5 +51,9 @@ export const router = createBrowserRouter([
   {
     path: "add",
     element: <SuperAdd />
+  },
+  {
+    path: "countDown",
+    element: <CountDown />
   }
 ])
