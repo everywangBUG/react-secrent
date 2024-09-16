@@ -10,6 +10,7 @@ import { Bar } from "../pages/Bar"
 import { Key } from "../pages/Key"
 import { SuperAdd } from "../pages/Add"
 import { CountDown } from "../pages/CountDown"
+import { Smile } from "../pages/Smile"
 
 export const router = createBrowserRouter([
   {
@@ -55,5 +56,9 @@ export const router = createBrowserRouter([
   {
     path: "countDown",
     element: <CountDown />
+  },
+  {
+    path: "smile",
+    element: <Smile />
   }
 ])

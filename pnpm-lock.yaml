@@ -33,6 +33,9 @@ importers:
       '@eslint/js':
         specifier: 9.9.0
         version: 9.9.0
+      '@react-spring/web':
+        specifier: ^9.7.4
+        version: 9.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@storybook/addon-essentials':
         specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.4(@babel/core@7.25.2)))
@@ -1151,6 +1154,33 @@ packages:
 
   '@polka/url@1.0.0-next.25':
     resolution: {integrity: sha512-j7P6Rgr3mmtdkeDGTe0E/aYyWEWVtc5yFXtHCRHs28/jptDEWfaVOc5T7cblqy1XKPPfCxJc/8DwQ5YgLOZOVQ==}
+
+  '@react-spring/animated@9.7.4':
+    resolution: {integrity: sha512-7As+8Pty2QlemJ9O5ecsuPKjmO0NKvmVkRR1n6mEotFgWar8FKuQt2xgxz3RTgxcccghpx1YdS1FCdElQNexmQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@react-spring/core@9.7.4':
+    resolution: {integrity: sha512-GzjA44niEJBFUe9jN3zubRDDDP2E4tBlhNlSIkTChiNf9p4ZQlgXBg50qbXfSXHQPHak/ExYxwhipKVsQ/sUTw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@react-spring/rafz@9.7.4':
+    resolution: {integrity: sha512-mqDI6rW0Ca8IdryOMiXRhMtVGiEGLIO89vIOyFQXRIwwIMX30HLya24g9z4olDvFyeDW3+kibiKwtZnA4xhldA==}
+
+  '@react-spring/shared@9.7.4':
+    resolution: {integrity: sha512-bEPI7cQp94dOtCFSEYpxvLxj0+xQfB5r9Ru1h8OMycsIq7zFZon1G0sHrBLaLQIWeMCllc4tVDYRTLIRv70C8w==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@react-spring/types@9.7.4':
+    resolution: {integrity: sha512-iQVztO09ZVfsletMiY+DpT/JRiBntdsdJ4uqk3UJFhrhS8mIC9ZOZbmfGSRs/kdbNPQkVyzucceDicQ/3Mlj9g==}
+
+  '@react-spring/web@9.7.4':
+    resolution: {integrity: sha512-UMvCZp7I5HCVIleSa4BwbNxynqvj+mJjG2m20VO2yPoi2pnCYANy58flvz9v/YcXTAvsmL655FV3pm5fbr6akA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
 
   '@remix-run/router@1.19.1':
     resolution: {integrity: sha512-S45oynt/WH19bHbIXjtli6QmwNYvaz+vtnubvNpNDvUOoA/OWh6j1OikIP3G+v5GHdxyC6EXoChG3HgYGEUfcg==}
@@ -4978,6 +5008,38 @@ snapshots:
       fastq: 1.17.1
 
   '@polka/url@1.0.0-next.25': {}
+
+  '@react-spring/animated@9.7.4(react@18.3.1)':
+    dependencies:
+      '@react-spring/shared': 9.7.4(react@18.3.1)
+      '@react-spring/types': 9.7.4
+      react: 18.3.1
+
+  '@react-spring/core@9.7.4(react@18.3.1)':
+    dependencies:
+      '@react-spring/animated': 9.7.4(react@18.3.1)
+      '@react-spring/shared': 9.7.4(react@18.3.1)
+      '@react-spring/types': 9.7.4
+      react: 18.3.1
+
+  '@react-spring/rafz@9.7.4': {}
+
+  '@react-spring/shared@9.7.4(react@18.3.1)':
+    dependencies:
+      '@react-spring/rafz': 9.7.4
+      '@react-spring/types': 9.7.4
+      react: 18.3.1
+
+  '@react-spring/types@9.7.4': {}
+
+  '@react-spring/web@9.7.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@react-spring/animated': 9.7.4(react@18.3.1)
+      '@react-spring/core': 9.7.4(react@18.3.1)
+      '@react-spring/shared': 9.7.4(react@18.3.1)
+      '@react-spring/types': 9.7.4
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@remix-run/router@1.19.1': {}
 
