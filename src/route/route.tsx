@@ -11,6 +11,7 @@ import { Key } from "../pages/Key"
 import { SuperAdd } from "../pages/Add"
 import { CountDown } from "../pages/CountDown"
 import { Smile } from "../pages/Smile"
+import { GestureAndSpring } from "../pages/GestureAndSpring"
 
 export const router = createBrowserRouter([
   {
@@ -60,5 +61,9 @@ export const router = createBrowserRouter([
   {
     path: "smile",
     element: <Smile />
+  },
+  {
+    path: "gestureAndSpring",
+    element: <GestureAndSpring />
   }
 ])
