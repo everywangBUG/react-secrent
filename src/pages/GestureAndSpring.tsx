@@ -15,6 +15,10 @@ export const GestureAndSpring: React.FC = () => {
   const width = window.innerWidth
   const [props, api] = useSprings(pages.length, i => ({ x: width * i, scale: 1 }))
 
+  // active： 当前是否在拖动
+  // movement: 拖动距离 [x, y]
+  // direction:  拖动方向[x, y]，1代表向左（向上）、-1代表向右（向下）
+  // cancel: 终止事件
   const bind = useDrag(({ active, movement: [mx], direction: [xDir], cancel }) => {
     if (active && Math.abs(mx) > width / 2) {
       let newIndex = index.current + (xDir > 0 ? -1 : 1)
