@@ -12,6 +12,7 @@ import { SuperAdd } from "../pages/Add"
 import { CountDown } from "../pages/CountDown"
 import { Smile } from "../pages/Smile"
 import { GestureAndSpring } from "../pages/GestureAndSpring"
+import { Poker } from "../pages/poker/Poker"
 
 export const router = createBrowserRouter([
   {
@@ -65,5 +66,9 @@ export const router = createBrowserRouter([
   {
     path: "gestureAndSpring",
     element: <GestureAndSpring />
+  },
+  {
+    path: "poker",
+    element: <Poker />
   }
 ])
