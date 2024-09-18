@@ -40,6 +40,7 @@ export const useStore = (defaultPosition: Position) => {
     update: (id: number, MessageProps: MessageProps) => {
       if (!id) return
       setMessageList(prev => {
+        
       })
     },
     clearAll: () => {
@@ -60,4 +61,27 @@ const getId = (messageProps: MessageProps) => {
   }
   count += 1
   return count
+}
+
+/**
+ * 获取位置
+ * @param id 弹窗id
+ * @param messageList 弹窗列表
+ * @returns
+ */
+export const getMessagePosition = (id: number, messageList: MessageList) => {
+  for(const [position, list] of Object.entries(messageList)) {
+    if (list.find(item => item.id === id)) {
+      return position as Position
+    }
+  }
+}
+
+export const findMessage = (id: numebr, messageList: MessageList) => {
+  const position = getMessagePosition(id, messageList)
+  const index = position ? messageList[position].findIndex(item => item.id === id) : -1
+  return {
+    position,
+    index
+  }
 }
