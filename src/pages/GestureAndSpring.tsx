@@ -1,5 +1,6 @@
 import { useSprings, animated } from "@react-spring/web"
-
+import { useDrag } from "@use-gesture/react"
+import { useRef } from "react"
 
 const pages = [
   "https://images.pexels.com/photos/62689/pexels-photo-62689.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
@@ -10,20 +11,44 @@ const pages = [
 ]
 
 export const GestureAndSpring: React.FC = () => {
+  const index = useRef(0)
   const width = window.innerWidth
   const [props, api] = useSprings(pages.length, i => ({ x: width * i, scale: 1 }))
 
+  const bind = useDrag(({ active, movement: [mx], direction: [xDir], cancel }) => {
+    if (active && Math.abs(mx) > width / 2) {
+      let newIndex = index.current + (xDir > 0 ? -1 : 1)
+  
+      if(newIndex < 0) {
+        newIndex = 0
+      }
+  
+      if(newIndex > pages.length - 1) {
+        newIndex = pages.length - 1
+      }
+  
+      index.current =  newIndex
+      
+      cancel()
+    }
+    api.start(i => {
+      const x = (i - index.current) * width + (active ? mx : 0)
+      const scale = active ? 1 - Math.abs(mx) / width / 2 : 1
+      return { x, scale }
+    })
+  })
+
   return (
-    <div relative w-screen h-screen overflow="hidden">
+    <div relative w-screen h-screen overflow="hidden" {...bind()}>
       {
         props.map(({ x, scale }, i) => (
           <animated.div
-            absolute w-screen h-screen touch-none
+            absolute w-full h-full touch-none
             key={i}
             style={{ x }}
           >
             <animated.div
-              touch-none bg-cover bg-no-repeat bg-center-center w-screen h-screen shadow-md
+              touch-none bg-cover bg-no-repeat bg-center-center w-full h-full shadow-md
               style={{ scale, backgroundImage: `url(${pages[i]})` }}
             />
           </animated.div>
