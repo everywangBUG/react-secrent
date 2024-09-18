@@ -64,7 +64,7 @@ const getId = (messageProps: MessageProps) => {
 }
 
 /**
- * 获取位置
+ * 遍历top和bottom的数组，查找有没有对应的Message
  * @param id 弹窗id
  * @param messageList 弹窗列表
  * @returns
@@ -77,6 +77,12 @@ export const getMessagePosition = (id: number, messageList: MessageList) => {
   }
 }
 
+/**
+ * 
+ * @param id 
+ * @param messageList 
+ * @returns 
+ */
 export const findMessage = (id: numebr, messageList: MessageList) => {
   const position = getMessagePosition(id, messageList)
   const index = position ? messageList[position].findIndex(item => item.id === id) : -1

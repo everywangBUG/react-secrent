@@ -13,6 +13,7 @@ import { CountDown } from "../pages/CountDown"
 import { Smile } from "../pages/Smile"
 import { GestureAndSpring } from "../pages/GestureAndSpring"
 import { Poker } from "../pages/poker/Poker"
+import { Message } from "../pages/Message"
 
 export const router = createBrowserRouter([
   {
@@ -70,5 +71,9 @@ export const router = createBrowserRouter([
   {
     path: "poker",
     element: <Poker />
+  },
+  {
+    path: "message",
+    element: <Message />
   }
 ])

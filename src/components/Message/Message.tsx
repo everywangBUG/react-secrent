@@ -1,4 +1,5 @@
-import React, { CSSProperties, ReactNode } from "react"
+import React, { CSSProperties, ReactNode, useEffect } from "react"
+import { useStore } from "./useStore"
 
 export type Position = "top" | "bottom"
 
@@ -11,8 +12,27 @@ export interface MessageProps {
   position?: Position
 }
 
-export const Message: React.FC = () => {
+export const MessageProvider: React.FC<{}> = (props) => {
+
+  const { messageList, add, update, remove, clearAll } = useStore("top")
+
+  useEffect(() => {
+    setInterval(() => {
+      add({
+        content: Math.random().toString().slice(2, 8)
+      })
+    }, 20000)
+  }, [])
+
   return (
-    <div>Message</div>
+    <div>
+      {
+        messageList.top.map(item => {
+          return <div style={{width: 100, lineHeight: "30px", border: "1px solid #000", margin: "20px"}}>
+            {item.content}
+          </div>
+        })
+      }
+    </div>
   )
 }
