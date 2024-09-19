@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react"
-import { remove } from "lodash-es"
 
 export interface UseTimerProps {
   id: number
