@@ -1,12 +1,12 @@
 import { useState } from "react"
-import { Position, MessageProps } from "./Message"
+import { Position, MessageProps } from "./MessageProvider"
 
 type MessageList = {
   top: MessageProps[]
   bottom: MessageProps[]
 }
 
-const initialState = { top: [], bottom: [], left: [], right: [] }
+const initialState = { top: [], bottom: [] }
 
 /**
  * 管理message消息列表
@@ -20,11 +20,21 @@ export const useStore = (defaultPosition: Position) => {
     messageList,
     add: (messageProps: MessageProps) => {
       const id = getId(messageProps)
-      setMessageList(prev => {
+      setMessageList((preState) => {
+        if (messageProps?.id) {
+          const position = getMessagePosition(messageProps.id, preState)
+          if (position) return preState
+        }
+
         const position = messageProps.position || defaultPosition
+        const isTop = position.includes("top")
+        const messages = isTop
+          ? [{ ...messageProps, id }, ...(preState[position] ?? [])]
+          : [...(preState[position] ?? []), { ...messageProps, id }]
+
         return {
-          ...prev,
-          [position]: [...prev[position], { ...messageProps, id }]
+          ...preState,
+          [position]: messages,
         }
       })
       return id
@@ -37,14 +47,22 @@ export const useStore = (defaultPosition: Position) => {
         }
       })
     },
-    update: (id: number, MessageProps: MessageProps) => {
+    update: (id: number, messageProps: MessageProps) => {
       if (!id) return
       setMessageList(prev => {
-        
+        const nextState = { ...prev }
+        const { position, index } = findMessage(id, messageList)
+        if (position && index !== -1) {
+          nextState[position][index] = {
+            ...nextState[position][index],
+            ...messageProps
+          }
+        }
+        return nextState
       })
     },
     clearAll: () => {
-      
+      setMessageList(initialState)
     }
   }
 }

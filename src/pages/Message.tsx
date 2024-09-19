@@ -1,4 +1,4 @@
-import { MessageProvider } from "../components/Message/Message"
+import { MessageProvider } from "../components/Message/MessageProvider"
 
 export const Message: React.FC = () => {
   return (
