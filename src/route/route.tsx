@@ -14,6 +14,7 @@ import { Smile } from "../pages/Smile"
 import { GestureAndSpring } from "../pages/GestureAndSpring"
 import { Poker } from "../pages/poker/Poker"
 import { Message } from "../pages/Message"
+import { SlidePage } from "../pages/SlidePage"
 
 export const router = createBrowserRouter([
   {
@@ -75,5 +76,9 @@ export const router = createBrowserRouter([
   {
     path: "message",
     element: <Message />
+  },
+  {
+    path: "slidePage",
+    element: <SlidePage />
   }
 ])
