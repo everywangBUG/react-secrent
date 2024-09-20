@@ -6,7 +6,7 @@ export const SlidePage: React.FC = () => {
   const [showDown, setShowDown] = useState(false)
   
   return (
-    <>
+    <div>
       <button
         type="button"
         onClick={() => {setShowRight(true)}}
@@ -18,8 +18,8 @@ export const SlidePage: React.FC = () => {
         from="right"
         className="bg-blue-2"
         style={{ border: "1px solid pink" }}
-        onEnter={() => alert("左边进入")}
-        onExit={() => alert("左边退出")}
+        // onEnter={() => alert("左边进入")}
+        // onExit={() => alert("左边退出")}
       >
         <div>
           <button type='button' onClick={() => {setShowRight(false)}}>
@@ -45,6 +45,6 @@ export const SlidePage: React.FC = () => {
           </button>
         </div>
       </Slide>
-    </>
+    </div>
   )
 }
