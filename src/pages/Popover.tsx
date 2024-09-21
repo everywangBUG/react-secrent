@@ -1,4 +1,4 @@
-import { useHover, useFloating, useInteractions } from "@floating-ui/react"
+import { useHover, useFloating, useInteractions, useClick, useDismiss, offset, arrow } from "@floating-ui/react"
 import { useState } from "react"
 
 export const Popover: React.FC = () => {
@@ -6,13 +6,38 @@ export const Popover: React.FC = () => {
   
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
-    onOpenChange: setIsOpen
+    onOpenChange: setIsOpen,
+    placement: "right",
+    middleware: [
+      offset(5),
+      arrow({ element: arrowRef })
+    ]
   })
+
+  // const hover = useHover(context)
+  const click = useClick(context)
+  const dismiss = useDismiss(context)
   
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    click,
+    dismiss
+  ])
+
   return (
     <div>
-      <div ref={refs.setReference} className="bg-red-500 w-20 h-20">
-      </div>
+      <button ref={refs.setReference} {...getReferenceProps()}>
+        hello
+      </button>
+      {
+        isOpen &&
+        <div
+          ref={refs.setFloating}
+          style={floatingStyles}
+          {...getFloatingProps()}
+        >
+          你好你好
+        </div>
+      }
     </div>
   )
 }
