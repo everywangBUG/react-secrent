@@ -15,7 +15,7 @@ import { GestureAndSpring } from "../pages/GestureAndSpring"
 import { Poker } from "../pages/poker/Poker"
 import { Message } from "../pages/Message"
 import { SlidePage } from "../pages/SlidePage"
-import { Popover } from "../pages/PopOver"
+import { PopoverPage } from "../pages/PopoverPage"
 
 export const router = createBrowserRouter([
   {
@@ -84,6 +84,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "popover",
-    element: <Popover />
+    element: <PopoverPage />
   }
 ])
