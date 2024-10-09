@@ -16,6 +16,7 @@ import { Poker } from "../pages/poker/Poker"
 import { Message } from "../pages/Message"
 import { SlidePage } from "../pages/SlidePage"
 import { PopoverPage } from "../pages/PopoverPage"
+import { OnBoarding } from "../pages/OnBoarding"
 
 export const router = createBrowserRouter([
   {
@@ -85,5 +86,9 @@ export const router = createBrowserRouter([
   {
     path: "popover",
     element: <PopoverPage />
+  },
+  {
+    path: "onBoarding",
+    element: <OnBoarding />
   }
 ])
