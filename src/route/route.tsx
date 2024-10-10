@@ -16,7 +16,7 @@ import { Poker } from "../pages/poker/Poker"
 import { Message } from "../pages/Message"
 import { SlidePage } from "../pages/SlidePage"
 import { PopoverPage } from "../pages/PopoverPage"
-import { OnBoarding } from "../pages/OnBoarding"
+import { OnBoardingPage } from "../pages/OnBoarding"
 import { ColorPickerPage } from "../pages/ColorPicker"
 
 export const router = createBrowserRouter([
@@ -90,7 +90,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "onBoarding",
-    element: <OnBoarding />
+    element: <OnBoardingPage />
   },
   {
     path: "ColorPickerPage",
