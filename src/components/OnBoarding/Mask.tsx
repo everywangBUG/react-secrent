@@ -29,6 +29,16 @@ export const Mask: React.FC<MaskProps> = (props) => {
 
   }, [element, container])
 
+  useEffect(() => {
+    const observer = new ResizeObserver(() => {
+      const style = getMaskStyle(element, container || document.documentElement)
+
+      setStyle(style)
+    })
+    observer.observe(container || document.documentElement)
+  }, [])
+
+
   const getContent = () => {
     if (!renderMaskContent) {
       return null
