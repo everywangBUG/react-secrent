@@ -30,6 +30,9 @@ importers:
       '@chromatic-com/storybook':
         specifier: 1.8.0
         version: 1.8.0(react@18.3.1)
+      '@ctrl/tinycolor':
+        specifier: 4.1.0
+        version: 4.1.0
       '@eslint/js':
         specifier: 9.9.0
         version: 9.9.0
@@ -792,6 +795,10 @@ packages:
   '@chromatic-com/storybook@1.8.0':
     resolution: {integrity: sha512-vkB9dPVmM2Yvqc/0DJ4MYwOGY1MOjd/KbB9TXTMGN+qshaEyiZtSOgbz9u0ExFALEgDKLmtUnWyUtoGb0pCzUg==}
     engines: {node: '>=16.0.0', yarn: '>=1.22.18'}
+
+  '@ctrl/tinycolor@4.1.0':
+    resolution: {integrity: sha512-WyOx8cJQ+FQus4Mm4uPIZA64gbk3Wxh0so5Lcii0aJifqwoVOlfFtorjLE0Hen4OYyHZMXDWqMmaQemBhgxFRQ==}
+    engines: {node: '>=14'}
 
   '@esbuild/aix-ppc64@0.21.5':
     resolution: {integrity: sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==}
@@ -4821,6 +4828,8 @@ snapshots:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
       - react
+
+  '@ctrl/tinycolor@4.1.0': {}
 
   '@esbuild/aix-ppc64@0.21.5':
     optional: true
