@@ -3,6 +3,7 @@ import { TooltipPlacement } from "antd/es/tooltip"
 import { useEffect, useState } from "react"
 import { createPortal } from "react-dom"
 import { Mask } from "./Mask"
+import { set } from "lodash-es"
 
 export interface OnBoardingStepConfig {
   selector: () => HTMLElement | null
@@ -25,6 +26,8 @@ export const OnBoarding: React.FC<OnBoardingProps> = (props) => {
   const [currentStep, setCurrentStep] = useState<number>(0)
 
   const [done, setDone] = useState(false)
+
+  const [isMaskMoving, setIsMaskMoving] = useState(false)
 
   const currentSelectedElement = steps[currentStep]?.selector()
 
@@ -89,14 +92,16 @@ export const OnBoarding: React.FC<OnBoardingProps> = (props) => {
     )
 
     return (
+      // 动画结束渲染Popover
+      isMaskMoving ? wrapper : 
       <Popover
-        content={<div>
-            {content}
-            {operation}
-        </div>}
-        open={true}
-        placement={getCurrentStep()?.placement}>
-        {wrapper}
+      content={<div>
+          {content}
+          {operation}
+      </div>}
+      open={true}
+      placement={getCurrentStep()?.placement}>
+      {wrapper}
       </Popover>
     )
   }
@@ -115,6 +120,12 @@ export const OnBoarding: React.FC<OnBoardingProps> = (props) => {
     container={currentContainerElement}
     element={currentSelectedElement}
     renderMaskContent={(wrapper) => renderPopover(wrapper)}
+    onAnimationStart={() => {
+      setIsMaskMoving(true)
+    }}
+    onAnimationEnd={() => {
+      setIsMaskMoving(false)
+    }}
   />
 
   return createPortal(mask, currentContainerElement)

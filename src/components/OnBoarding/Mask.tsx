@@ -6,12 +6,25 @@ interface MaskProps {
   element: HTMLElement
   container?: HTMLElement
   renderMaskContent?: (wrapper: React.ReactNode) => React.ReactNode
+  onAnimationStart?: () => void
+  onAnimationEnd?: () => void
 }
 
 export const Mask: React.FC<MaskProps> = (props) => {
-  const { element, container, renderMaskContent } = props
+  const { element, container, renderMaskContent, onAnimationStart, onAnimationEnd } = props
 
   const [style, setStyle] = useState<CSSProperties>({})
+
+  useEffect(() => {
+    onAnimationStart?.()
+    const timer = setTimeout(() => {
+      onAnimationEnd?.()
+    }, 200)
+
+    return () => {
+        window.clearTimeout(timer)
+    }
+  }, [element])
 
   useEffect(() => {
     if (!element) {
