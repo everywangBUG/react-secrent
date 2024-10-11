@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { TransformOffset } from "./Transform"
+import { Color } from "./Color";
 
 type EventType =
   | MouseEvent
@@ -8,20 +9,30 @@ type EventType =
 type EventHandle = (e: EventType) => void;
 
 interface useColorDragProps {
+  color?: Color
   offset?: TransformOffset
   containerRef: React.RefObject<HTMLDivElement>
   targetRef: React.RefObject<HTMLDivElement>
   direction?: "x" | "y"
   onDragChange?: (offset: TransformOffset) => void
-
+  calculate?: () => TransformOffset
 }
 
 export const useColorDrag = (props: useColorDragProps): [TransformOffset, EventHandle] => {
-  const { offset, containerRef, targetRef, direction, onDragChange } = props
+  const { offset, containerRef, targetRef, direction, onDragChange, color, calculate } = props
   
   const [offsetValue, setOffsetValue] = useState(offset || { x: 0, y: 0 })
 
   const dragRef = useRef({ flag: false })
+
+  useEffect(() => {
+    if (!dragRef.current.flag) {
+      const calcOffset = calculate?.()
+      if (calcOffset) {
+        setOffsetValue(calcOffset)
+      }
+    }
+  }, [color])
 
   useEffect(() => {
     document.removeEventListener("mousemove", onDragMove)
