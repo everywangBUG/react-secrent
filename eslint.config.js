@@ -24,7 +24,7 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       // tab键缩进两个空格
-      'react/jsx-indent': ['error', 2],
+      'indent': ['error', 2],
       // 允许使用空对象类型
       '@typescript-eslint/no-empty-object-type': 'off',
       // 允许使用未声明变量
@@ -36,7 +36,7 @@ export default tseslint.config(
       '@typescript-eslint/no-unsafe-function-type': 'off',
       // useEffect 依赖列表中不允许有未声明的变量
       'react-hooks/exhaustive-deps': 'off',
-      // 允许使用 console
+      // 只使用双引号
       quotes: ['error', 'double'],
       // 不使用分号结尾语句
       semi: ['warn', 'never'],

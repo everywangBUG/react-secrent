@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef } from "react"
 
 export interface TransformOffset {
   x: number;
@@ -11,7 +11,7 @@ export interface TransformProps {
 }
 
 export const Transform = forwardRef<HTMLDivElement, TransformProps>((props, ref) => {
-  const { offset, children } = props;
+  const { offset, children } = props
 
   return (
      <div
