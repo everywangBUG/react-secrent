@@ -14,9 +14,6 @@ export const Handler: React.FC<HandlerProps> = ({ size = "default", color }) => 
       className={classNames("color-picker-panel-palette-handler", {
         ["color-picker-panel-palette-handler-sm"]: size === "small",
       })}
-      style={{
-        backgroundColor: color,
-      }}
     >
     </div>
   )

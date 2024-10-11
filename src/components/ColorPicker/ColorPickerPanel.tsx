@@ -24,7 +24,6 @@ export const ColorPickerPanel: React.FC<ColorPickerPanel> = (props) => {
   
   const onPaletteColorChange = (color: Color) => {
     setColorValue(color)
-    console.log(color, "placeholder")
     onChange?.(color)
   }
 
