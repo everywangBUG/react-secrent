@@ -22,9 +22,15 @@ export const ColorPickerPanel: React.FC<ColorPickerPanel> = (props) => {
 
   const classNames = cs("color-picker", className)
   
+  const onPaletteColorChange = (color: Color) => {
+    setColorValue(color)
+    console.log(color, "placeholder")
+    onChange?.(color)
+  }
+
   return (
     <div className={classNames} style={style}>
-      <Palette color={colorValue}/>
+      <Palette color={colorValue} onChange={onPaletteColorChange} />
     </div>
   )
 }
