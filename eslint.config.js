@@ -23,6 +23,8 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      // tab键缩进两个空格
+      'react/jsx-indent': ['error', 2],
       // 允许使用空对象类型
       '@typescript-eslint/no-empty-object-type': 'off',
       // 允许使用未声明变量

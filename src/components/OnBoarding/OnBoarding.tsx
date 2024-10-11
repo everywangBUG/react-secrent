@@ -93,9 +93,9 @@ export const OnBoarding: React.FC<OnBoardingProps> = (props) => {
 
     return (
       // 动画结束渲染Popover
-      isMaskMoving ? wrapper : 
+      isMaskMoving ? wrapper :
       <Popover
-      content={<div>
+      content={<div>  
           {content}
           {operation}
       </div>}
