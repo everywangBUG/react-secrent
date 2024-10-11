@@ -4,7 +4,7 @@ import { Handler } from "./Handler"
 import "./Palette.scss"
 import { Transform } from "./Transform"
 import { useColorDrag } from "./useColorDrag"
-import { calculateColor } from "./utils"
+import { calculateColor, calculateOffset } from "./utils"
 
 export const Palette: React.FC<{color: Color, onChange?: (color: Color) => void}> = ({color, onChange}) => {
   const transformRef = useRef<HTMLDivElement>(null)
@@ -12,9 +12,13 @@ export const Palette: React.FC<{color: Color, onChange?: (color: Color) => void}
   const [offsetValue, DragStartHandle] = useColorDrag({
     containerRef,
     targetRef: transformRef,
+    color,
     onDragChange: offsetValue => {
       const newColor = calculateColor({offset: offsetValue, color, containerRef, targetRef: transformRef})
       onChange?.(newColor)
+    },
+    calculate: () => {
+      return calculateOffset(containerRef, transformRef, color)
     }
   })
 
