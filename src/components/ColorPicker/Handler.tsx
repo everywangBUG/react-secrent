@@ -18,5 +18,3 @@ export const Handler: React.FC<HandlerProps> = ({ size = "default", color }) => 
     </div>
   )
 }
-
-

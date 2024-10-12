@@ -77,9 +77,9 @@ export const OnBoarding: React.FC<OnBoardingProps> = (props) => {
         {
           currentStep !== 0 && 
             <Button
-                className={"back"}
-                onClick={() => back()}>
-                {"上一步"}
+              className={"back"}
+              onClick={() => back()}>
+              {"上一步"}
             </Button>
         }
         <Button
@@ -94,15 +94,15 @@ export const OnBoarding: React.FC<OnBoardingProps> = (props) => {
     return (
       // 动画结束渲染Popover
       isMaskMoving ? wrapper :
-      <Popover
-      content={<div>  
-          {content}
-          {operation}
-      </div>}
-      open={true}
-      placement={getCurrentStep()?.placement}>
-      {wrapper}
-      </Popover>
+        <Popover
+          content={<div>  
+            {content}
+            {operation}
+          </div>}
+          open={true}
+          placement={getCurrentStep()?.placement}>
+          {wrapper}
+        </Popover>
     )
   }
 

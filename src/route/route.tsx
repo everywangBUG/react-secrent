@@ -18,6 +18,7 @@ import { SlidePage } from "../pages/SlidePage"
 import { PopoverPage } from "../pages/PopoverPage"
 import { OnBoardingPage } from "../pages/OnBoarding"
 import { ColorPickerPage } from "../pages/ColorPicker"
+import { FormPage } from "../pages/FromPage"
 
 export const router = createBrowserRouter([
   {
@@ -95,5 +96,9 @@ export const router = createBrowserRouter([
   {
     path: "ColorPickerPage",
     element: <ColorPickerPage />
+  },
+  {
+    path: "FormPage",
+    element: <FormPage />
   }
 ])
