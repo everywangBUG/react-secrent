@@ -1,4 +1,5 @@
 import { CSSProperties, FormEvent, useRef, useState } from "react"
+import c from "classnames"
 import FormContext from "./FormContext"
 
 interface FormProps {
@@ -47,6 +48,8 @@ export const Form: React.FC<FormProps> = (props) => {
     validatorMap.current.set(name, cb)
   }
 
+  const cls = c("ant-form", classNames)
+
   return (
     <FormContext.Provider
       value={{
@@ -57,7 +60,10 @@ export const Form: React.FC<FormProps> = (props) => {
       }}
     >
       <form
-        onSubmit={handleSubmit} {...others}>{children}
+        className={cls}
+        style={style}
+        onSubmit={handleSubmit}
+        {...others}>{children}
       </form>
     </FormContext.Provider>
   )

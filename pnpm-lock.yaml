@@ -93,6 +93,9 @@ importers:
       antd:
         specifier: 5.21.3
         version: 5.21.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      async-validator:
+        specifier: 4.2.5
+        version: 4.2.5
       classnames:
         specifier: 2.5.1
         version: 2.5.1
@@ -833,26 +836,20 @@ packages:
     resolution: {integrity: sha512-vkB9dPVmM2Yvqc/0DJ4MYwOGY1MOjd/KbB9TXTMGN+qshaEyiZtSOgbz9u0ExFALEgDKLmtUnWyUtoGb0pCzUg==}
     engines: {node: '>=16.0.0', yarn: '>=1.22.18'}
 
-<<<<<<< Updated upstream
   '@ctrl/tinycolor@3.6.1':
     resolution: {integrity: sha512-SITSV6aIXsuVNV3f3O0f2n/cgyEDWoSqtZMYiAmcsYHydcKrOz3gUxB/iXd/Qf08+IZX4KpgNbvUdMBmWz+kcA==}
     engines: {node: '>=10'}
 
-=======
->>>>>>> Stashed changes
   '@ctrl/tinycolor@4.1.0':
     resolution: {integrity: sha512-WyOx8cJQ+FQus4Mm4uPIZA64gbk3Wxh0so5Lcii0aJifqwoVOlfFtorjLE0Hen4OYyHZMXDWqMmaQemBhgxFRQ==}
     engines: {node: '>=14'}
 
-<<<<<<< Updated upstream
   '@emotion/hash@0.8.0':
     resolution: {integrity: sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==}
 
   '@emotion/unitless@0.7.5':
     resolution: {integrity: sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==}
 
-=======
->>>>>>> Stashed changes
   '@esbuild/aix-ppc64@0.21.5':
     resolution: {integrity: sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==}
     engines: {node: '>=12'}
@@ -2066,6 +2063,9 @@ packages:
   ast-types@0.16.1:
     resolution: {integrity: sha512-6t10qk83GOG8p0vKmaCr8eiilZwO171AvbROMtvvNiwrTly62t+7XkA8RdIIVbpMhCASAsxgAzdRSwh6nw/5Dg==}
     engines: {node: '>=4'}
+
+  async-validator@4.2.5:
+    resolution: {integrity: sha512-7HhHjtERjqlNbZtqNqy2rckN/SpOOlmDliet+lP7k+eKZEjPk3DgyeU9lIXLdeLz0uBbbVp+9Qdow9wJWgwwfg==}
 
   available-typed-arrays@1.0.7:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
@@ -5239,7 +5239,6 @@ snapshots:
       - '@chromatic-com/playwright'
       - react
 
-<<<<<<< Updated upstream
   '@ctrl/tinycolor@3.6.1': {}
 
   '@ctrl/tinycolor@4.1.0': {}
@@ -5248,10 +5247,6 @@ snapshots:
 
   '@emotion/unitless@0.7.5': {}
 
-=======
-  '@ctrl/tinycolor@4.1.0': {}
-
->>>>>>> Stashed changes
   '@esbuild/aix-ppc64@0.21.5':
     optional: true
 
@@ -6626,6 +6621,8 @@ snapshots:
   ast-types@0.16.1:
     dependencies:
       tslib: 2.7.0
+
+  async-validator@4.2.5: {}
 
   available-typed-arrays@1.0.7:
     dependencies:
