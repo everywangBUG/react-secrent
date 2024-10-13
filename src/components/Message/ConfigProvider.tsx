@@ -9,14 +9,14 @@ export const ConfigContext = createContext<ConfigProviderProps>({})
 
 export function ConfigProvider(props: PropsWithChildren) {
 
-    const { children } = props
+  const { children } = props
     
-    const messageRef = useRef<MessageRef>(null)
+  const messageRef = useRef<MessageRef>(null)
 
-    return (
-      <ConfigContext.Provider value={{ messageRef }}>
-          <MessageProvider ref={messageRef}></MessageProvider>
-          {children}    
-      </ConfigContext.Provider>
-    )
+  return (
+    <ConfigContext.Provider value={{ messageRef }}>
+      <MessageProvider ref={messageRef}></MessageProvider>
+      {children}    
+    </ConfigContext.Provider>
+  )
 }

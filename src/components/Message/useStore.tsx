@@ -101,7 +101,7 @@ export const getMessagePosition = (id: number, messageList: MessageList) => {
  * @param messageList 
  * @returns 
  */
-export const findMessage = (id: numebr, messageList: MessageList) => {
+export const findMessage = (id: number, messageList: MessageList) => {
   const position = getMessagePosition(id, messageList)
   const index = position ? messageList[position].findIndex(item => item.id === id) : -1
   return {
