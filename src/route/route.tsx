@@ -19,6 +19,7 @@ import { PopoverPage } from "../pages/PopoverPage"
 import { OnBoardingPage } from "../pages/OnBoarding"
 import { ColorPickerPage } from "../pages/ColorPicker"
 import { FormPage } from "../pages/FromPage"
+import { ZustandPage } from "../pages/ZustandPage"
 
 export const router = createBrowserRouter([
   {
@@ -100,5 +101,9 @@ export const router = createBrowserRouter([
   {
     path: "FormPage",
     element: <FormPage />
+  },
+  {
+    path: "ZustandPage",
+    element: <ZustandPage />
   }
 ])
