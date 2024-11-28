@@ -196,11 +196,11 @@ export default function useWatermark(params: WatermarkOptions) {
       return
     }
 
-      getCanvasData(mergedOptions).then(({ base64Url, width, height }) => {
-        const offsetLeft = mergedOptions.offset[0] + "px"
-        const offsetTop = mergedOptions.offset[1] + "px"
+    getCanvasData(mergedOptions).then(({ base64Url, width, height }) => {
+      const offsetLeft = mergedOptions.offset[0] + "px"
+      const offsetTop = mergedOptions.offset[1] + "px"
 
-        const wmStyle = `
+      const wmStyle = `
           width: calc(100% - ${offsetLeft});
           height: calc(100% - ${offsetTop});
           position: absolute;
@@ -217,41 +217,41 @@ export default function useWatermark(params: WatermarkOptions) {
           background-image: url(${base64Url})`
 
 
-          if (!waterMarkDiv.current) {
-            const div = document.createElement("div")
-            waterMarkDiv.current = div
-            container.append(div)
-            container.style.position = "relative"
+      if (!waterMarkDiv.current) {
+        const div = document.createElement("div")
+        waterMarkDiv.current = div
+        container.append(div)
+        container.style.position = "relative"
+      }
+      waterMarkDiv.current?.setAttribute("style", wmStyle.trim())
+
+      if (container) {
+        mutationObserver.current?.disconnect()
+
+        mutationObserver.current = new MutationObserver((mutations) => {
+          const isChanged = mutations.some((mutation) => {
+            let flag = false
+            if (mutation.removedNodes.length) {
+              flag = Array.from(mutation.removedNodes).some((node) => node === waterMarkDiv.current)
+            }
+            if (mutation.type === "attributes" && mutation.target === waterMarkDiv.current) {
+              flag = true
+            }
+            return flag
+          })
+          if (isChanged) {
+            waterMarkDiv.current = undefined
+            drawWatermark()
           }
-          waterMarkDiv.current?.setAttribute("style", wmStyle.trim())
+        })
 
-          if (container) {
-            mutationObserver.current?.disconnect()
-
-            mutationObserver.current = new MutationObserver((mutations) => {
-              const isChanged = mutations.some((mutation) => {
-                let flag = false
-                if (mutation.removedNodes.length) {
-                  flag = Array.from(mutation.removedNodes).some((node) => node === waterMarkDiv.current)
-                }
-                if (mutation.type === "attributes" && mutation.target === waterMarkDiv.current) {
-                  flag = true
-                }
-                return flag
-              })
-              if (isChanged) {
-                waterMarkDiv.current = undefined
-                drawWatermark()
-              }
-            })
-
-            mutationObserver.current.observe(container, {
-              attributes: true,
-              subtree: true,
-              childList: true,
-            })
-          }
-      })
+        mutationObserver.current.observe(container, {
+          attributes: true,
+          subtree: true,
+          childList: true,
+        })
+      }
+    })
   }
 
   useEffect(() => {

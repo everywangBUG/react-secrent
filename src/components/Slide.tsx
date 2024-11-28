@@ -74,12 +74,12 @@ export const Slide: React.FC<SlideProps> = (props) => {
     (x: number) => {
       console.log(x, "x888")
       switch(from) {
-        case "right":
-          return `translateX(${x}px)`
-        case "down":
-          return `translateY(${x}px)`
-        default:
-          return "none"
+      case "right":
+        return `translateX(${x}px)`
+      case "down":
+        return `translateY(${x}px)`
+      default:
+        return "none"
       }
     }, [from])
 

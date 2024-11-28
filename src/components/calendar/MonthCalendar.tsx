@@ -57,19 +57,19 @@ export const MonthCalendar: React.FC<MonthCalendarProps> = (props) => {
         >
           {
             dateRender
-            ?
-            dateRender(item.date)
-            :
-            (
-              <>
-                <div p-10px>
-                  <span className={value?.toISOString() === item.date.toISOString() ? s.selectedDate : ""}>
-                    {item.date.date()}
-                  </span>
-                </div>
-                <div p-10px>{dateInnerContent?.(item.date)}</div>
-              </>
-            )
+              ?
+              dateRender(item.date)
+              :
+              (
+                <>
+                  <div p-10px>
+                    <span className={value?.toISOString() === item.date.toISOString() ? s.selectedDate : ""}>
+                      {item.date.date()}
+                    </span>
+                  </div>
+                  <div p-10px>{dateInnerContent?.(item.date)}</div>
+                </>
+              )
           }
         </div>
       }

@@ -65,26 +65,26 @@ export const Smile: React.FC = () => {
             {
               gridSprings.map(({x2}, i) => (
                 <animated.line
-                key={i}
-                x1={0}
-                y1={i * 10}
-                x2={x2}
-                y2={i * 10}
-                strokeWidth={strokeWidth}
-                stroke="currentColor"
+                  key={i}
+                  x1={0}
+                  y1={i * 10}
+                  x2={x2}
+                  y2={i * 10}
+                  strokeWidth={strokeWidth}
+                  stroke="currentColor"
                 />
               ))
             }
             {
               gridSprings.map(({y2}, i) => (
                 <animated.line
-                key={i}
-                x1={i * 10}
-                y1={0}
-                x2={i * 10}
-                y2={y2}
-                strokeWidth={strokeWidth}
-                stroke="currentColor"
+                  key={i}
+                  x1={i * 10}
+                  y1={0}
+                  x2={i * 10}
+                  y2={y2}
+                  strokeWidth={strokeWidth}
+                  stroke="currentColor"
                 />
               ))
             }

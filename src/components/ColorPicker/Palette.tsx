@@ -28,18 +28,18 @@ export const Palette: React.FC<{color: Color, onChange?: (color: Color) => void}
       className="color-picker-panel-palette"
       onMouseDown={DragStartHandle}
     >
-        <Transform ref={transformRef} offset={{x: offsetValue.x, y: offsetValue.y}}>
-          <Handler color={color.toString()} />
-        </Transform>
-        <div
-          className="color-picker-panel-palette-main"
-          style={{
-            backgroundColor: `hsl(${color.toHsl().h},100%, 50%)`,
-            backgroundImage: "linear-gradient(0deg, #000, transparent),linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0))"
-          }}
-        >
+      <Transform ref={transformRef} offset={{x: offsetValue.x, y: offsetValue.y}}>
+        <Handler color={color.toString()} />
+      </Transform>
+      <div
+        className="color-picker-panel-palette-main"
+        style={{
+          backgroundColor: `hsl(${color.toHsl().h},100%, 50%)`,
+          backgroundImage: "linear-gradient(0deg, #000, transparent),linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0))"
+        }}
+      >
 
-        </div>
       </div>
+    </div>
   )
 }

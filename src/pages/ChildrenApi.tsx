@@ -18,16 +18,16 @@ export const ChildrenApi: React.FC<Props> = (props) => {
   
   return (
     <>
-    {/* 这里的map会把数组拍平，普通的数组方法不会 */}
-    {
-      arr.map((item, index) => {
-        return (
-          <div key={index}>
-            {item}
-          </div>
-        )
-      })
-    }
+      {/* 这里的map会把数组拍平，普通的数组方法不会 */}
+      {
+        arr.map((item, index) => {
+          return (
+            <div key={index}>
+              {item}
+            </div>
+          )
+        })
+      }
     </>
   )
 }

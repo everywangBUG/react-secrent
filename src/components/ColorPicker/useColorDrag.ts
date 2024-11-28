@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { TransformOffset } from "./Transform"
-import { Color } from "./Color";
+import { Color } from "./Color"
 
 type EventType =
   | MouseEvent
@@ -48,38 +48,38 @@ export const useColorDrag = (props: useColorDragProps): [TransformOffset, EventH
 
   // 拖动过程的offset计算
   const updateOffset: EventHandle = e => {
-    const scrollXOffset = document.documentElement.scrollLeft || document.body.scrollLeft;
-    const scrollYOffset = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollXOffset = document.documentElement.scrollLeft || document.body.scrollLeft
+    const scrollYOffset = document.documentElement.scrollTop || document.body.scrollTop
 
-    const pageX = e.pageX - scrollXOffset;
-    const pageY = e.pageY - scrollYOffset;
-
-    const { 
-        x: rectX,
-        y: rectY,
-        width,
-        height
-    } = containerRef.current!.getBoundingClientRect();
+    const pageX = e.pageX - scrollXOffset
+    const pageY = e.pageY - scrollYOffset
 
     const { 
-        width: targetWidth,
-        height: targetHeight
-    } = targetRef.current!.getBoundingClientRect();
+      x: rectX,
+      y: rectY,
+      width,
+      height
+    } = containerRef.current!.getBoundingClientRect()
 
-    const centerOffsetX = targetWidth / 2;
-    const centerOffsetY = targetHeight / 2;
+    const { 
+      width: targetWidth,
+      height: targetHeight
+    } = targetRef.current!.getBoundingClientRect()
 
-    const offsetX = Math.max(0, Math.min(pageX - rectX, width)) - centerOffsetX;
-    const offsetY = Math.max(0, Math.min(pageY - rectY, height)) - centerOffsetY;
+    const centerOffsetX = targetWidth / 2
+    const centerOffsetY = targetHeight / 2
+
+    const offsetX = Math.max(0, Math.min(pageX - rectX, width)) - centerOffsetX
+    const offsetY = Math.max(0, Math.min(pageY - rectY, height)) - centerOffsetY
 
     const calcOffset = {
-        x: offsetX,
-        y: direction === 'x' ? offsetValue.y : offsetY,
-    };
+      x: offsetX,
+      y: direction === "x" ? offsetValue.y : offsetY,
+    }
 
-    setOffsetValue(calcOffset);
-    onDragChange?.(calcOffset);
-  };
+    setOffsetValue(calcOffset)
+    onDragChange?.(calcOffset)
+  }
 
   const onDragMove: EventHandle = (e) => {
     e.preventDefault()

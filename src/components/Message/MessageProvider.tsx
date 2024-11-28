@@ -89,12 +89,12 @@ export const MessageProvider: React.FC<{}> = forwardRef<MessageRef, {}>((props, 
       }
     </div>
 
-    const el = useMemo(() => {
-      const el = document.createElement("div")
-      el.className = "wrapper"
-      document.body.appendChild(el)
-      return el
-    }, [])
+  const el = useMemo(() => {
+    const el = document.createElement("div")
+    el.className = "wrapper"
+    document.body.appendChild(el)
+    return el
+  }, [])
 
   return createPortal(messageWrapper, el)
 })

@@ -22,7 +22,7 @@ export const Mask: React.FC<MaskProps> = (props) => {
     }, 200)
 
     return () => {
-        window.clearTimeout(timer)
+      window.clearTimeout(timer)
     }
   }, [element])
 

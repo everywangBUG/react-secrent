@@ -12,40 +12,40 @@ export const OnBoardingPage: React.FC = () => {
       <Button type="link">Link Button</Button>
     </Flex>
 
-  <div style={{height: "1000px"}}></div>
+    <div style={{height: "1000px"}}></div>
 
-  <Flex wrap="wrap" gap="small">
-    <Button type="primary" danger>
+    <Flex wrap="wrap" gap="small">
+      <Button type="primary" danger>
       Primary
-    </Button>
-    <Button danger>Default</Button>
-    <Button type="dashed" danger  id="btn-group2">
+      </Button>
+      <Button danger>Default</Button>
+      <Button type="dashed" danger  id="btn-group2">
       Dashed
-    </Button>
-    <Button type="text" danger>
+      </Button>
+      <Button type="text" danger>
       Text
-    </Button>
-    <Button type="link" danger>
+      </Button>
+      <Button type="link" danger>
       Link
-    </Button>
-  </Flex>
+      </Button>
+    </Flex>
 
-  <div style={{height: "500px"}}></div>
+    <div style={{height: "500px"}}></div>
 
-  <Flex wrap="wrap" gap="small">
-    <Button type="primary" ghost>
+    <Flex wrap="wrap" gap="small">
+      <Button type="primary" ghost>
       Primary
-    </Button>
-    <Button ghost>Default</Button>
-    <Button type="dashed" ghost>
+      </Button>
+      <Button ghost>Default</Button>
+      <Button type="dashed" ghost>
       Dashed
-    </Button>
-    <Button type="primary" danger ghost id="btn-group3">
+      </Button>
+      <Button type="primary" danger ghost id="btn-group3">
       Danger
-    </Button>
-  </Flex>
+      </Button>
+    </Flex>
 
-  <OnBoarding
+    <OnBoarding
       steps={
         [
           {

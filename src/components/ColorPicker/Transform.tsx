@@ -14,16 +14,16 @@ export const Transform = forwardRef<HTMLDivElement, TransformProps>((props, ref)
   const { offset, children } = props
 
   return (
-     <div
-        ref={ref}
-        style={{
-          position: "absolute",
-          left: offset?.x ?? 0,
-          top: offset?.y ?? 0,
-          zIndex: 1,
-        }}
-     >
+    <div
+      ref={ref}
+      style={{
+        position: "absolute",
+        left: offset?.x ?? 0,
+        top: offset?.y ?? 0,
+        zIndex: 1,
+      }}
+    >
       {children}
-     </div>
+    </div>
   )
 })
